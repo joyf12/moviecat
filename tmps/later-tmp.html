@@ -1,0 +1,27 @@
+<div class="list">
+<h1>{{name}}</h1>
+    <ul>
+   
+        <!-- ngRepeat: item in movie.subjects -->
+        <li ng-repeat="value in movie.subjects">
+            <a href="#/details">
+                <!-- ng-src解决图片异步加载会报错的问题 -->
+                <img alt="" ng-src={{value.images.large}}>
+            </a>
+            <div class="meta">
+                <h4><span class="ng-binding">{{value.title}}</span> <em class="ng-binding">{{value.rating.average}}</em></h4>
+                <div class="otherinfo">类型:
+                    <span ng-repeat="genre in value.genres">{{genre}}</span>                                            
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="paging">
+        <label class="ng-binding">总共：{{totalCount}}条记录,第{{pageid}}/{{pageCount}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <a class="prev" style="display:inline-block;width:100px;height:30px;line-height:30px" href="#/later/1/{{pagesize}}">首页</a>
+        <a class="prev" style="display:inline-block;width:100px;height:30px;line-height:30px" href="#/later/{{prevPageid}}/{{pagesize}}">上一页</a>
+        <a class="next" style="display:inline-block;width:100px;height:30px;line-height:30px;" href="#/later/{{nextPageid}}/{{pagesize}}">下一页</a>
+        <a class="next" style="display:inline-block;width:100px;height:30px;line-height:30px;" href="#/later/{{pageCount}}/{{pagesize}}">尾页</a>
+    </div>
+</div>

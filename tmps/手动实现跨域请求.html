@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<script src="http:https://api.douban.com/v2/movie/in_theaters?callback=callback"></script>
+    	<script>
+    		// function callback(data){
+    		// 	console.log(data);
+    		// }
+    		
+    		function jsonp(url,params,callback){
+    			var callbackName = 'callback'+new data().getTime();
+    			var script = document.createElement('script');
+    			url+='?';
+    			for(var k in params){
+    				url+=k+'='+params[k]+'&';
+    			}
+    			url+='callback='+callbackName;
+    			script.src=url;
+    			document.body.appendChild(script);
+    			window[callbackName]=function(data){
+    				callback(data);
+    			}
+    		}
+    	</script>
+
+    </body>
+</html>

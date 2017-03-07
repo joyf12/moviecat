@@ -1,0 +1,1 @@
+angular.module("moviecatApp.service",[]).service("$moviecatSrv",["$window",function(e){this.JSONP=function(e,c,n){var i="callback"+(new Date).getTime(),o=document.createElement("script");e+="?";for(var t in c)e+=t+"="+c[t]+"&";e+="callback="+i,o.src=e,document.body.appendChild(o),window[i]=function(e){n(e),document.body.removeChild(o)}}}]);
